@@ -1,3 +1,6 @@
+IR Journal
+explain.py - all code explanation
+
 1. Write a program to demonstrate Logical bitwise
 2. edit and weighted distance
 3. soundex algorithm.
