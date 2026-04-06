@@ -47,6 +47,12 @@ for term, documents in inverted_index.items():
         else:
             print(f"{doc} ({occ_num_doc2.get(term, 0)})", end=" ")
     print()
+
+
+
+
+
+
 ✅ 2) Retrieve Document based on Query
 import os
 import string
@@ -99,6 +105,12 @@ query = "retrieval"
 result = search(inverted_index, query)
 
 print(f"Documents containing the query '{query}': {sorted(result)}")
+
+
+
+
+
+
 ✅ 3) Display Inverted Index in Alphabetical Order
 import nltk
 from nltk.corpus import stopwords
@@ -143,6 +155,12 @@ for term in sorted(inverted_index.keys()):
         else:
             print(f"{doc} ({occ_num_doc2.get(term, 0)})", end=" ")
     print()
+
+
+
+
+
+
 ✅ 4) Count Total Unique Terms
 import nltk
 from nltk.corpus import stopwords
@@ -194,3 +212,264 @@ total_unique_terms = len(inverted_index)
 print("\nTotal number of unique terms indexed:", total_unique_terms)
 
 
+
+
+
+For Viva - 
+
+# 📘 IR Practical Viva Questions (Inverted Index & Query Processing)
+
+📂 Reference Practical: :contentReference[oaicite:0]{index=0}
+
+---
+
+## 🔹 1. What is Information Retrieval (IR)?
+**Answer:**  
+Information Retrieval is the process of retrieving relevant documents from a large collection based on a user query.
+
+---
+
+## 🔹 2. What is an Inverted Index?
+**Answer:**  
+An inverted index is a data structure that maps each term to the list of documents in which it appears.
+
+---
+
+## 🔹 3. Why is an inverted index used?
+**Answer:**  
+It enables fast and efficient searching of documents.
+
+---
+
+## 🔹 4. What is indexing in IR?
+**Answer:**  
+Indexing is the process of organizing data to allow quick retrieval.
+
+---
+
+## 🔹 5. What is a term in IR?
+**Answer:**  
+A term is a word or token extracted from a document.
+
+---
+
+## 🔹 6. What is a posting list?
+**Answer:**  
+A posting list is the list of documents associated with a term.
+
+---
+
+## 🔹 7. What is term frequency (TF)?
+**Answer:**  
+The number of times a term appears in a document.
+
+---
+
+## 🔹 8. What is tokenization?
+**Answer:**  
+Breaking text into individual words or tokens.
+
+---
+
+## 🔹 9. What is preprocessing?
+**Answer:**  
+Cleaning and preparing text (lowercasing, removing punctuation, etc.).
+
+---
+
+## 🔹 10. What is stopword removal?
+**Answer:**  
+Removing common words that do not add meaningful value.
+
+---
+
+## 🔹 11. What is normalization?
+**Answer:**  
+Converting text into a standard format (e.g., lowercase).
+
+---
+
+## 🔹 12. What is a corpus?
+**Answer:**  
+A collection of documents used in IR.
+
+---
+
+## 🔹 13. What is document ID?
+**Answer:**  
+A unique identifier assigned to each document.
+
+---
+
+## 🔹 14. What is query processing?
+**Answer:**  
+Processing a user query to retrieve relevant documents.
+
+---
+
+## 🔹 15. What is Boolean retrieval?
+**Answer:**  
+Retrieving documents using logical operators like AND, OR, NOT.
+
+---
+
+## 🔹 16. What is intersection in query processing?
+**Answer:**  
+Finding common documents that contain all query terms.
+
+---
+
+## 🔹 17. What is union in query processing?
+**Answer:**  
+Finding documents that contain any of the query terms.
+
+---
+
+## 🔹 18. What is search efficiency?
+**Answer:**  
+How quickly relevant documents are retrieved.
+
+---
+
+## 🔹 19. What is scalability in IR?
+**Answer:**  
+Ability to handle large datasets efficiently.
+
+---
+
+## 🔹 20. What is vocabulary in IR?
+**Answer:**  
+The set of all unique terms in the corpus.
+
+---
+
+## 🔹 21. What is the advantage of inverted index?
+**Answer:**  
+- Fast search  
+- Efficient storage  
+- Scalable  
+
+---
+
+## 🔹 22. What is the limitation of inverted index?
+**Answer:**  
+- Requires preprocessing  
+- Storage overhead  
+
+---
+
+## 🔹 23. What is document retrieval?
+**Answer:**  
+Fetching documents relevant to a query.
+
+---
+
+## 🔹 24. What is ranking in IR?
+**Answer:**  
+Ordering documents based on relevance.
+
+---
+
+## 🔹 25. What is relevance?
+**Answer:**  
+How well a document matches a query.
+
+---
+
+## 🔹 26. What is exact match retrieval?
+**Answer:**  
+Retrieving documents that exactly match the query terms.
+
+---
+
+## 🔹 27. What is approximate matching?
+**Answer:**  
+Retrieving documents that are similar but not exact matches.
+
+---
+
+## 🔹 28. What is data structure used in inverted index?
+**Answer:**  
+Dictionary or hash map.
+
+---
+
+## 🔹 29. What is frequency count in IR?
+**Answer:**  
+Counting occurrences of terms in documents.
+
+---
+
+## 🔹 30. What is alphabetical sorting in IR?
+**Answer:**  
+Arranging terms in order for easier access.
+
+---
+
+## 🔹 31. What is feature extraction?
+**Answer:**  
+Converting text into useful features for processing.
+
+---
+
+## 🔹 32. What is document similarity?
+**Answer:**  
+Measuring how similar two documents are.
+
+---
+
+## 🔹 33. What is bag-of-words model?
+**Answer:**  
+Representing text as a collection of words without order.
+
+---
+
+## 🔹 34. What is IR system?
+**Answer:**  
+A system that retrieves relevant information based on queries.
+
+---
+
+## 🔹 35. What is search engine?
+**Answer:**  
+A system that uses IR techniques to search the web.
+
+---
+
+## 🔹 36. What is data filtering?
+**Answer:**  
+Selecting relevant information from data.
+
+---
+
+## 🔹 37. What is text mining?
+**Answer:**  
+Extracting useful information from text.
+
+---
+
+## 🔹 38. What is unstructured data?
+**Answer:**  
+Data without a fixed format (e.g., text documents).
+
+---
+
+## 🔹 39. What is real-world use of inverted index?
+**Answer:**  
+- Search engines  
+- Document retrieval systems  
+- Digital libraries  
+
+---
+
+## 🔹 40. Why is inverted index important?
+**Answer:**  
+Because it allows fast and efficient retrieval of relevant documents.
+
+---
+
+## 🔥 Tip for Viva:
+If asked **“Explain inverted index in one line”**, say:  
+👉 *“An inverted index maps terms to the documents in which they appear to enable fast search.”*
+
+---
