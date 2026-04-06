@@ -24,6 +24,12 @@ str2 = input("Enter string 2: ")
 # Output
 print("Edit Distance is:", editdistance(str1, str2, len(str1), len(str2)))
 
+
+
+
+
+
+
 #2) Weighted Edit Distance (Levenshtein Distance)
 Code:
 import numpy as np
@@ -31,40 +37,46 @@ import numpy as np
 def levenshtein(seq1, seq2):
     size_x = len(seq1) + 1
     size_y = len(seq2) + 1
-
+    
     # Create matrix
     matrix = np.zeros((size_x, size_y))
-
-    # Initialize first row and column
+    
+    # Initialize rows and columns
     for x in range(size_x):
-        matrix[x][0] = x
+        matrix[x, 0] = x
     for y in range(size_y):
-        matrix[0][y] = y
+        matrix[0, y] = y
 
-    # Fill matrix
+    # Compute edit distance
     for x in range(1, size_x):
         for y in range(1, size_y):
             if seq1[x-1] == seq2[y-1]:
                 cost = 0
             else:
                 cost = 1
-
-            matrix[x][y] = min(
-                matrix[x-1][y] + 1,      # Deletion
-                matrix[x][y-1] + 1,      # Insertion
-                matrix[x-1][y-1] + cost  # Substitution
+            
+            matrix[x, y] = min(
+                matrix[x-1, y] + 1,      # Deletion
+                matrix[x, y-1] + 1,      # Insertion
+                matrix[x-1, y-1] + cost  # Substitution
             )
 
-    print("Matrix:\n", matrix)
-    return int(matrix[size_x-1][size_y-1])
+    print("Distance Matrix:\n", matrix)
+    return int(matrix[size_x-1, size_y-1])
 
-# Input
+# Example
 str1 = input("Enter string 1: ")
 str2 = input("Enter string 2: ")
+print("Levenshtein Distance:", levenshtein(str1, str2))
+
+
+
+
+
+
 
 
 # 3) Word-Level Edit Distance (Sentence Level)
-Code:
 def editdistance(words1, words2, m, n):
     # Base cases
     if m == 0:
@@ -76,16 +88,28 @@ def editdistance(words1, words2, m, n):
     if words1[m-1] == words2[n-1]:
         return editdistance(words1, words2, m-1, n-1)
 
-    # Insert, Delete, Substitute
+    # If last words don't match
     return 1 + min(
-        editdistance(words1, words2, m, n-1),     # Insert
-        editdistance(words1, words2, m-1, n),     # Delete
-        editdistance(words1, words2, m-1, n-1)    # Substitute
+        editdistance(words1, words2, m, n-1),    # Insert
+        editdistance(words1, words2, m-1, n),    # Delete
+        editdistance(words1, words2, m-1, n-1)   # Replace
     )
 
 # Input
 str1 = input("Enter Sentence 1: ")
 str2 = input("Enter Sentence 2: ")
+
+# Convert sentences to word lists
+words1 = str1.split()
+words2 = str2.split()
+
+# Compute edit distance
+distance = editdistance(words1, words2, len(words1), len(words2))
+
+# Output
+print("Word-Level Edit Distance is:", distance)
+
+
 
 
 
