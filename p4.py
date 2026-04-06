@@ -146,3 +146,325 @@ print("Union size:", len(union_tri))
 print(f"Jaccard Coefficient (trigrams) = {len(inter_tri)}/{len(union_tri)} = {jacc_trigram}")
 Output:
 (Write output based on your input)
+
+
+
+For Viva -
+# 📘 IR Practical Viva Questions (N-grams & Jaccard Coefficient)
+
+---
+
+## 🔹 1. What is an N-gram?
+
+**Answer:**
+An N-gram is a sequence of *N consecutive words or tokens* from a text.
+
+---
+
+## 🔹 2. What is a Bigram?
+
+**Answer:**
+A bigram is a sequence of **2 consecutive words** (N = 2).
+
+---
+
+## 🔹 3. What is a Trigram?
+
+**Answer:**
+A trigram is a sequence of **3 consecutive words** (N = 3).
+
+---
+
+## 🔹 4. Why are N-grams used in Information Retrieval?
+
+**Answer:**
+They help in:
+
+* Text analysis
+* Similarity detection
+* Language modeling
+
+---
+
+## 🔹 5. What is tokenization?
+
+**Answer:**
+Breaking text into smaller units like words or tokens.
+
+---
+
+## 🔹 6. What is preprocessing in IR?
+
+**Answer:**
+Cleaning and preparing text (lowercasing, removing punctuation).
+
+---
+
+## 🔹 7. What is the purpose of lowercasing text?
+
+**Answer:**
+To ensure uniformity and avoid treating same words differently.
+
+---
+
+## 🔹 8. What is similarity measurement?
+
+**Answer:**
+It measures how similar two texts are.
+
+---
+
+## 🔹 9. What is Jaccard Coefficient?
+
+**Answer:**
+It is a similarity measure defined as:
+👉 **Intersection / Union of two sets**
+
+---
+
+## 🔹 10. What does Jaccard similarity value indicate?
+
+**Answer:**
+
+* 0 → no similarity
+* 1 → identical
+
+---
+
+## 🔹 11. What is intersection in Jaccard?
+
+**Answer:**
+Common elements between two sets.
+
+---
+
+## 🔹 12. What is union in Jaccard?
+
+**Answer:**
+All unique elements from both sets combined.
+
+---
+
+## 🔹 13. Why use sets in Jaccard similarity?
+
+**Answer:**
+To remove duplicate elements and focus on unique features.
+
+---
+
+## 🔹 14. What is the difference between unigram, bigram, trigram?
+
+**Answer:**
+
+* Unigram → single word
+* Bigram → 2 words
+* Trigram → 3 words
+
+---
+
+## 🔹 15. How does increasing N affect results?
+
+**Answer:**
+
+* Higher N → more context, less matching
+* Lower N → less context, more matching
+
+---
+
+## 🔹 16. What is text similarity used for?
+
+**Answer:**
+
+* Plagiarism detection
+* Search engines
+* Document clustering
+
+---
+
+## 🔹 17. What is approximate matching?
+
+**Answer:**
+Matching similar text rather than exact matches.
+
+---
+
+## 🔹 18. What is the role of N-grams in NLP?
+
+**Answer:**
+They help in predicting word sequences and understanding context.
+
+---
+
+## 🔹 19. What is language modeling?
+
+**Answer:**
+Predicting the probability of a sequence of words.
+
+---
+
+## 🔹 20. What is the advantage of bigrams?
+
+**Answer:**
+They capture context better than single words.
+
+---
+
+## 🔹 21. What is the limitation of N-grams?
+
+**Answer:**
+
+* Large storage requirement
+* Data sparsity for large N
+
+---
+
+## 🔹 22. What is data sparsity?
+
+**Answer:**
+When many possible N-grams do not appear in the dataset.
+
+---
+
+## 🔹 23. What is cosine similarity vs Jaccard similarity?
+
+**Answer:**
+
+* Cosine → considers frequency
+* Jaccard → considers presence/absence
+
+---
+
+## 🔹 24. What is feature extraction?
+
+**Answer:**
+Converting text into measurable features (like N-grams).
+
+---
+
+## 🔹 25. What is document similarity?
+
+**Answer:**
+Measuring how close two documents are in content.
+
+---
+
+## 🔹 26. What is set theory in IR?
+
+**Answer:**
+Using mathematical sets for operations like union and intersection.
+
+---
+
+## 🔹 27. What is normalization?
+
+**Answer:**
+Standardizing text (e.g., lowercase conversion).
+
+---
+
+## 🔹 28. What is stop word removal?
+
+**Answer:**
+Removing common words like “the”, “is”, “and”.
+
+---
+
+## 🔹 29. What is vector representation?
+
+**Answer:**
+Representing text as numerical features.
+
+---
+
+## 🔹 30. What is clustering in IR?
+
+**Answer:**
+Grouping similar documents together.
+
+---
+
+## 🔹 31. What is classification?
+
+**Answer:**
+Assigning documents to predefined categories.
+
+---
+
+## 🔹 32. What is text mining?
+
+**Answer:**
+Extracting useful information from text data.
+
+---
+
+## 🔹 33. What is corpus?
+
+**Answer:**
+A collection of text documents.
+
+---
+
+## 🔹 34. What is feature space?
+
+**Answer:**
+All possible features used to represent data.
+
+---
+
+## 🔹 35. What is similarity threshold?
+
+**Answer:**
+A value above which two documents are considered similar.
+
+---
+
+## 🔹 36. What is IR system?
+
+**Answer:**
+A system that retrieves relevant information based on queries.
+
+---
+
+## 🔹 37. What is the advantage of Jaccard similarity?
+
+**Answer:**
+
+* Simple
+* Effective for set comparison
+
+---
+
+## 🔹 38. What is limitation of Jaccard similarity?
+
+**Answer:**
+
+* Ignores frequency of terms
+* Less effective for large datasets
+
+---
+
+## 🔹 39. What is real-world use of N-grams?
+
+**Answer:**
+
+* Search engines
+* Chatbots
+* Auto-suggestions
+
+---
+
+## 🔹 40. Why are N-grams important in IR?
+
+**Answer:**
+Because they capture context and improve text similarity analysis.
+
+---
+
+## 🔥 Tip for Viva:
+
+If examiner asks **“Explain Jaccard in one line”**, say:
+👉 *“Jaccard similarity measures how similar two sets are by dividing the number of common elements by the total unique elements.”*
+
+---
+
+
