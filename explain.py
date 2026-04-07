@@ -603,3 +603,242 @@ Parses XML data (RSS feeds), extracts information, and builds a graph.
 
 ---
 
+
+
+
+
+
+
+---
+
+# 📘 IR Practicals – Logic (Exam Ready)
+
+---
+
+# 🔹 Practical 1: Boolean Retrieval
+
+### 📌 Logic
+
+1. Store documents in a dictionary
+2. Define list of words (terms)
+3. Create incidence matrix (rows = words, columns = documents)
+4. For each document:
+
+   * Convert text to lowercase
+   * Remove punctuation
+   * Split into tokens
+5. Check if each word exists in document → mark 1 or 0
+6. Convert each row into binary number
+7. Take Boolean query as input
+8. Replace words with their binary values
+9. Apply bitwise operations (AND, OR, NOT)
+10. Convert result into binary
+11. Display documents where result = 1
+
+---
+
+# 🔹 Practical 2: Edit Distance
+
+## 📌 Logic (Recursive)
+
+1. If one string is empty → return length of other
+2. Compare last characters:
+
+   * If same → ignore and move forward
+   * Else → perform operations:
+
+     * Insert
+     * Delete
+     * Substitute
+3. Take minimum of all operations
+4. Return final value
+
+---
+
+## 🔹 Levenshtein (DP)
+
+### 📌 Logic
+
+1. Create matrix of size (m+1 × n+1)
+2. Initialize:
+
+   * First row → insertion
+   * First column → deletion
+3. For each cell:
+
+   * If characters same → cost = 0
+   * Else → cost = 1
+4. Fill matrix using:
+
+   * Min(insert, delete, substitute)
+5. Final answer = last cell
+
+---
+
+## 🔹 Word-Level Edit Distance
+
+### 📌 Logic
+
+1. Take two sentences
+2. Convert into word lists
+3. Apply same edit distance logic
+4. Compare words instead of characters
+5. Return minimum operations
+
+---
+
+# 🔹 Practical 3: Soundex Algorithm
+
+### 📌 Logic
+
+1. Keep first letter of word
+2. Convert remaining letters into digits using mapping
+3. Remove vowels and ignored letters
+4. Remove duplicate consecutive digits
+5. Keep only first 3 digits
+6. Pad with 0 if needed
+7. Return final 4-character code
+
+---
+
+# 🔹 Practical 4: N-gram Model
+
+### 📌 Logic
+
+1. Take two input texts
+2. Convert to lowercase
+3. Remove punctuation
+4. Tokenize into words
+5. Generate N-grams (sequence of N words)
+6. Convert N-grams into sets
+7. Find:
+
+   * Intersection (common N-grams)
+   * Union (all N-grams)
+8. Compute Jaccard similarity:
+
+   * Intersection / Union
+9. Repeat for bigrams and trigrams
+
+---
+
+# 🔹 Practical 5: PageRank
+
+### 📌 Logic
+
+1. Define pages and their links
+2. Initialize PageRank of each page = 1
+3. Set damping factor (d = 0.85)
+4. For each iteration:
+
+   * For each page:
+
+     * Find pages linking to it
+     * Compute contribution
+5. Apply formula:
+   PR = (1 - d) + d × (incoming links contribution)
+6. Update values
+7. Repeat for multiple iterations
+8. Display final ranks
+
+---
+
+# 🔹 Practical 6: Document Similarity
+
+### 📌 Logic
+
+1. Read both documents
+2. Convert text to lowercase
+3. Tokenize words
+4. Remove stopwords
+5. Count frequency of each word
+6. Create vectors for both documents
+7. Compute:
+
+   * Dot product
+   * Magnitude of vectors
+8. Apply cosine similarity formula
+9. Return similarity value
+
+---
+
+# 🔹 Practical 7: Stop Word Removal
+
+### 📌 Logic
+
+1. Take input text
+2. Tokenize into words
+3. Load stopwords list
+4. Remove words present in stopwords
+5. Store filtered words
+6. Print or write output to file
+
+---
+
+# 🔹 Practical 8: Web Crawler
+
+### 📌 Logic
+
+1. Input URL and search word
+2. Fetch webpage using URL
+3. Parse HTML content
+4. Extract all links (`<a>` tags)
+5. Convert relative links to absolute
+6. Visit each link
+7. Check if word exists in page
+8. Store matching URLs
+9. Avoid revisiting same URLs
+10. Print results
+
+---
+
+# 🔹 Practical 9: Inverted Index
+
+## 📌 Logic (Indexing)
+
+1. Take documents
+2. Convert to lowercase
+3. Tokenize words
+4. Remove stopwords
+5. For each word:
+
+   * Store document ID
+   * Count occurrences
+6. Create mapping:
+   word → list of documents
+
+---
+
+## 📌 Logic (Retrieval)
+
+1. Take query input
+2. Preprocess query
+3. Find documents for each word
+4. Apply intersection (AND logic)
+5. Return matching documents
+
+---
+
+## 📌 Logic (Extras)
+
+* Sort terms alphabetically
+* Count total unique terms
+
+---
+
+# 🔹 Practical 10: XML Parsing & Web Graph
+
+### 📌 Logic
+
+1. Fetch XML data from URL
+2. Save XML file
+3. Parse XML using ElementTree
+4. Extract required fields (title, link, etc.)
+5. Store data in list
+6. Write data to CSV (Excel)
+7. Create graph using NetworkX
+8. Add nodes and edges
+9. Display graph using Matplotlib
+
+---
+
