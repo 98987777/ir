@@ -1,67 +1,73 @@
-import csv
-import requests
-import xml.etree.ElementTree as ET
+import csv  # Used to read/write CSV files
+import requests  # Used to send HTTP requests (fetch RSS feed)
+import xml.etree.ElementTree as ET  # Used to parse XML data
 
 # Load RSS feed
 def load_rss(url, filename):
-    resp = requests.get(url)
-    with open(filename, 'wb') as f:
-        f.write(resp.content)
-    print(f"RSS feed loaded and saved to '{filename}'.")
+    resp = requests.get(url)  # Send GET request to fetch RSS feed from URL
+    with open(filename, 'wb') as f:  # Open file in write-binary mode
+        f.write(resp.content)  # Write fetched XML content into file
+    print(f"RSS feed loaded and saved to '{filename}'.")  # Print confirmation
 
 # Parse XML and extract items
 def parse_xml(xmlfile):
-    tree = ET.parse(xmlfile)
-    root = tree.getroot()
-    newsitems = []
+    tree = ET.parse(xmlfile)  # Parse XML file into tree structure
+    root = tree.getroot()  # Get root element of XML
+    newsitems = []  # List to store extracted news data
 
-    allowed_fields = {'guid', 'title', 'pubDate', 'description', 'link'}
+    allowed_fields = {'guid', 'title', 'pubDate', 'description', 'link'}  
+    # Set of required fields to extract
 
-    for item in root.findall('.//item'):
-        news = {}
+    for item in root.findall('.//item'):  # Find all <item> tags in XML
+        news = {}  # Dictionary to store single news item
 
-        for child in item:
-            tag = child.tag.split('}')[-1]   # remove namespace
+        for child in item:  # Loop through each child tag inside item
+            tag = child.tag.split('}')[-1]   # Remove namespace (if present)
 
             # keep only required fields
-            if tag in allowed_fields:
-                news[tag] = child.text
+            if tag in allowed_fields:  # Check if tag is needed
+                news[tag] = child.text  # Store tag text in dictionary
 
             # handle media content if present
-            if tag == 'content' and 'url' in child.attrib:
-                news['media'] = child.attrib['url']
+            if tag == 'content' and 'url' in child.attrib:  
+                news['media'] = child.attrib['url']  
+                # Extract media URL if available in attributes
 
-        newsitems.append(news)
+        newsitems.append(news)  # Add news dictionary to list
 
-    return newsitems
+    return newsitems  # Return list of news items
 
 # Save to CSV
 def save_to_csv(newsitems, filename):
-    fields = ['guid', 'title', 'pubDate', 'description', 'link', 'media']
+    fields = ['guid', 'title', 'pubDate', 'description', 'link', 'media']  
+    # Define CSV column headers
 
-    with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fields)
-        writer.writeheader()
-        writer.writerows(newsitems)
+    with open(filename, 'w', newline='', encoding='utf-8') as csvfile:  
+        # Open CSV file in write mode with UTF-8 encoding
+        writer = csv.DictWriter(csvfile, fieldnames=fields)  
+        # Create CSV writer object with field names
+        writer.writeheader()  # Write header row in CSV
+        writer.writerows(newsitems)  # Write all news data rows
 
-    print(f"Data saved to '{filename}'.")
+    print(f"Data saved to '{filename}'.")  # Print confirmation
 
 # Main function
 def main():
     # Choose any one RSS link
-    rss_url = 'http://feeds.bbci.co.uk/news/rss.xml'
+    rss_url = 'http://feeds.bbci.co.uk/news/rss.xml'  
+    # RSS feed URL (BBC News)
     # rss_url = 'https://timesofindia.indiatimes.com/rssfeedstopstories.cms'
     # rss_url = 'https://feeds.feedburner.com/50WordStories'
 
-    xml_filename = 'news.xml'
-    csv_filename = 'news.csv'
+    xml_filename = 'news.xml'  # File to store downloaded XML
+    csv_filename = 'news.csv'  # File to store processed CSV
 
-    load_rss(rss_url, xml_filename)
-    newsitems = parse_xml(xml_filename)
-    save_to_csv(newsitems, csv_filename)
+    load_rss(rss_url, xml_filename)  # Download and save RSS feed
+    newsitems = parse_xml(xml_filename)  # Parse XML and extract data
+    save_to_csv(newsitems, csv_filename)  # Save extracted data to CSV
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__":  # Check if script is run directly
+    main()  # Call main function
 
 
 
